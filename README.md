@@ -1,6 +1,7 @@
 ## Awesome Vision-Language Models [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 <img src="./images/overview.png" width="96%" height="96%">
+<img src="./images/weather_diverse.png" width="96%" height="96%">
 
 This is the repository of **Vision Language Models for Vision Tasks: a Survey**, a systematic survey of VLM studies in various visual recognition tasks including image classification, object detection, semantic segmentation, etc. For details, please refer to:
 

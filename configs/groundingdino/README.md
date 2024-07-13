@@ -22,9 +22,7 @@ Here we evaluate the performance of GroundingDino on cross-domain data, taking t
 ### 1. Dataset Preparation
 Download [Diverse Weather](https://github.com/AmingWu/Single-DGOD) Datasets and convert the dataset into coco format. Diverse Weather consists of images from five different weather conditions in urban scenes: daytime sunny, night sunny, dusk rainy, night rainy, and daytime foggy. Examples from the five scenes are illustrated as following. Here, we view daytime sunny scene as source domain and test on the other four challenging weather conditions (unseen target domains).
 
-<img src="./images/overview.png" width="96%" height="96%">
-
-<img src="./images/weather_diverse.png" width="96%" height="96%">
+<img src="../../images/weather_diverse.png" width="96%" height="96%">
 
 ### 2. Config Preparation
 
