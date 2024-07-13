@@ -32,28 +32,31 @@ The Details of the configuration can be found in [grounding_dino_swin-t_finetune
 
 ### 3. Zero prediction
 
-```
+```shell
+# $MMDETROOT represents the main directory of the [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x).
+
 cd $MMDETROOT
 
+# download the pretrained weights
 wget https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
 
-python demo/image_demo.py \
-	demo/demo.jpg \
-	configs/grounding_dino/grounding_dino_swin-t_pretrain_obj365_goldg_cap4m.py \
-	--weights groundingdino_swint_ogc_mmdet-822d7e9d.pth \
-	--texts 'bench . car .'
+# perform the zero prediction
+python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py groundingdino_swint_ogc_mmdet-822d7e9d.pth
 ```
 
 ### 4. Source Finetune and evaluation
 
+```shell
+# finetune on the source domain dataset, here, we use 4 cards to train 20 epochs, scale the learning rate accordingly, and do not train the language model, only the visual model.
+
+./tools/dist_train.sh configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py 4 --work-dir work_dir/weather_work_dir
+
 ```
-cd $MMDETROOT
+The model will be saved based on the best performance on the test set.
 
-wget https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
+```shell
+# Then we test the best model on the different unseen target dataset. Here we assume that epoch_20.pth is the best model.
 
-python demo/image_demo.py \
-	demo/demo.jpg \
-	configs/grounding_dino/grounding_dino_swin-t_pretrain_obj365_goldg_cap4m.py \
-	--weights groundingdino_swint_ogc_mmdet-822d7e9d.pth \
-	--texts 'bench . car .'
+python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py work_dir/weather_work_dir/epoch_20.pth
+
 ```
