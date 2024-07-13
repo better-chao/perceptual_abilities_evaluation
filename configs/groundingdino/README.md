@@ -12,9 +12,9 @@ Grounding DINO is an open-set object detector by marrying Transformer-based dete
 <div align=center>
 <img src="https://github.com/open-mmlab/mmdetection/assets/42299757/0ed51aeb-3d53-42d8-8563-f6d21364ac95"/>
 </div>
-
+ 
 ## Installation
-Follow the [instructions](https://github.com/open-mmlab/mmdetection/blob/dev-3.x/configs/grounding_dino/README.md) to configure the environment.
+Here we use groundingdino's mmdetection implementation, clone the [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x) and follow the [instructions](https://github.com/open-mmlab/mmdetection/blob/dev-3.x/configs/grounding_dino/README.md) to configure the environment.
 
 
 ## Domain-related Evaluation
@@ -26,78 +26,34 @@ Download [Diverse Weather](https://github.com/AmingWu/Single-DGOD) Datasets and 
 
 ### 2. Config Preparation
 
-Due to the simplicity and small number of cat datasets, we use 8 cards to train 20 epochs, scale the learning rate accordingly, and do not train the language model, only the visual model.
+Here we consider two evaluation methods: 1. Zero prediction：Directly use the weights to evaluate on 5 scenarios; 2. Full finetune: Use the weights to perform full finetuning on the source domain, and then evaluate the performance on the unseen target domain.
 
-The Details of the configuration can be found in [grounding_dino_swin-t_finetune_8xb2_20e_cat](grounding_dino_swin-t_finetune_8xb2_20e_cat.py)
+The Details of the configuration can be found in [grounding_dino_swin-t_finetune_8xb2_20e_weather](grounding_dino_swin-t_finetune_8xb2_20e_weather.py), and we put this configuration file into ./configs/grounding_dino in [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x).
 
-### 3. Visualization and Evaluation
+### 3. Zero prediction
 
-Due to the Grounding DINO is an open detection model, so it can be detected and evaluated even if it is not trained on the cat dataset.
+```
+cd $MMDETROOT
 
-The single image visualization is as follows:
+wget https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
 
-```shell
-cd mmdetection
-python demo/image_demo.py data/cat/images/IMG_20211205_120756.jpg configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_cat.py --weights https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth --texts cat.
+python demo/image_demo.py \
+	demo/demo.jpg \
+	configs/grounding_dino/grounding_dino_swin-t_pretrain_obj365_goldg_cap4m.py \
+	--weights groundingdino_swint_ogc_mmdet-822d7e9d.pth \
+	--texts 'bench . car .'
 ```
 
-<div align=center>
-<img src="https://github.com/open-mmlab/mmdetection/assets/17425982/89173261-16f1-4fd9-ac63-8dc2dcda6616" alt="cat dataset"/>
-</div>
+### 4. Source Finetune and evaluation
 
-The test dataset evaluation on single card is as follows:
-
-```shell
-python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_cat.py https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
 ```
+cd $MMDETROOT
 
-```text
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.867
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 1.000
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.931
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = -1.000
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = -1.000
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.867
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.903
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.907
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.907
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = -1.000
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = -1.000
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.907
+wget https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
+
+python demo/image_demo.py \
+	demo/demo.jpg \
+	configs/grounding_dino/grounding_dino_swin-t_pretrain_obj365_goldg_cap4m.py \
+	--weights groundingdino_swint_ogc_mmdet-822d7e9d.pth \
+	--texts 'bench . car .'
 ```
-
-### 4. Model Training and Visualization
-
-```shell
-./tools/dist_train.sh configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_cat.py 8 --work-dir cat_work_dir
-```
-
-The model will be saved based on the best performance on the test set. The performance of the best model (at epoch 16) is as follows:
-
-```text
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.905
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 1.000
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.923
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = -1.000
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = -1.000
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.905
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.927
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.937
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.937
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = -1.000
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = -1.000
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.937
-```
-
-We can find that after fine-tuning training, the training of the cat dataset is increased from 86.7 to 90.5.
-
-If we do single image inference visualization again, the result is as follows:
-
-```shell
-cd mmdetection
-python demo/image_demo.py data/cat/images/IMG_20211205_120756.jpg configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_cat.py --weights cat_work_dir/best_coco_bbox_mAP_epoch_16.pth --texts cat.
-```
-
-<div align=center>
-<img src="https://github.com/open-mmlab/mmdetection/assets/17425982/5a027b00-8adb-4283-a47b-2f7a0a2c96d4" alt="cat dataset"/>
-</div>
