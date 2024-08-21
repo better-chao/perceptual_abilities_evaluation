@@ -6,6 +6,8 @@
 
 OWL-ViT is a method for open-vocabulary object detection that leverages the power of Vision Transformers (ViTs). It employs a standard ViT architecture, pre-trained contrastively on a large image-text dataset, and fine-tuned end-to-end for detection tasks. With minimal modifications to the original model, OWL-ViT achieves strong performance on zero-shot and one-shot image-conditioned detection, demonstrating the effectiveness of simple architectures combined with large-scale pre-training for open-vocabulary settings. The method simplifies the detection process by removing the final token pooling layer and attaching lightweight classification and box heads directly to the transformer output tokens, enabling open-vocabulary classification with class-name embeddings. OWL-ViT showcases consistent improvements with increased image-level pre-training and model size, setting a new benchmark for open-world detection tasks.
 
+![owlvit-overview](https://github.com/better-chao/perceptual_abilities_evaluation/blob/main/images/owlvit-overview.png)
+
 ## Installation
 
 Here we use the owlvit model available in the transformers open source library.
