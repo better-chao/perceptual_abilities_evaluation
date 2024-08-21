@@ -6,7 +6,7 @@
 
 CORA introduces a DETR-style framework that effectively adapts the CLIP model for open-vocabulary detection by employing two key strategies: Region Prompting and Anchor Pre-Matching.   Region Prompting tackles the distribution mismatch by enhancing the region features of the CLIP-based region classifier, ensuring that the model can accurately classify objects within image regions rather than relying solely on whole-image features.   Anchor Pre-Matching, on the other hand, facilitates the learning of generalizable object localization.  It does so by using a class-aware matching mechanism that associates object queries with dynamic anchor boxes.  This pre-matching process allows for efficient and class-specific localization of objects, which is crucial for detecting novel classes during inference.
 
-![image-20240821131018031](C:\Users\Yangshuai\AppData\Roaming\Typora\typora-user-images\image-20240821131018031.png)
+![cora-overview](https://github.com/better-chao/perceptual_abilities_evaluation/blob/main/images/cora-overview.png)
 
 ## Installation
 
