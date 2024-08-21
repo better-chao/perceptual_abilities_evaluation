@@ -35,7 +35,7 @@ We evaluated configurations with ViT B/16 and ViT L/14 backbones.
 
 ### 3.Weights Preparation
 
-Download the [owlvit-large-patch14](https://huggingface.co/google/owlv2-large-patch14) and [owlvit-base-patch16](https://huggingface.co/google/owlv2-base-patch16) to the weights directory.
+Download the [owlv2-large-patch14](https://huggingface.co/google/owlv2-large-patch14) and [owlv2-base-patch16](https://huggingface.co/google/owlv2-base-patch16) to the weights directory.
 
 ### 4.Evaluation
 
