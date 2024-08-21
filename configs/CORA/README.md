@@ -35,4 +35,56 @@ sh ./make.sh
 
 ### 1.Dataset Preparation
 
-In this task, we use FG-OVD benchmark, see[FG-OVD]()
+In this task, we use FG-OVD benchmark, see[FG-OVD](https://github.com/better-chao/perceptual_abilities_evaluation/blob/main/datasets/FG-OVD/README.md)
+
+### 2.Config Preparation
+
+We utilize the model with Resnet50x4 as the backbone. [Config](https://github.com/tgxs002/CORA/blob/master/configs/COCO/R50x4_dab_ovd_3enc_apm128_splcls0.2_relabel_noinit.sh)
+
+### 3.Weights Preparation
+
+Download the [checkpoint](https://drive.google.com/file/d/115osjVyv86vjG_b0W83vPQryXxdIDsv_/view?usp=share_link) to the weights directory in CORA.
+
+### 4.Evaluation
+
+First we use the following command for inference.
+
+```
+python cora_inferences.py \
+--dataset ../FG-OVD/benchmarks/1_attributes.json \
+--out ./work_dir/1_attributes.pkl \
+--n_hardnegatives 5 \
+--resume ./weights/COCO_RN50x4.pth \
+--eval \
+--batch_size 2 \
+--backbone clip_RN50x4 \
+--ovd \
+--region_prompt_path logs/region_prompt_R50x4.pth \
+--dim_feedforward 1024 \
+--use_nms \
+--num_queries 1000 \
+--anchor_pre_matching \
+--remove_misclassified \
+--condition_on_text \
+--enc_layers 3 \
+--text_dim 640 \
+--condition_bottleneck 128 \
+--label_version RN50x4base_prev \
+--disable_init
+```
+'--dataset' refers to the data to be evaluated in json format
+'--out' refers to where the output results are stored
+'--n_hardnegatives' refers to negative sample number, which is default to 5 for difficulty-based evaluation and 2 for attribute-based evaluation.
+The other parameters are the cora configuration.
+
+Then we use the following command to evaluate.
+
+```
+python evaluate_map.py \
+--predictions work_dir/1_attributes.pkl \
+--ground_truth ../FG-OVD/benchmarks/1_attributes.json \
+--out work_dir/1_attributes_result.json
+```
+'--predictions' refer to the results of model inference
+'--ground_truth' refers to the data to be evaluated in json format
+'--out' refers to where the output evaluation results are stored.
