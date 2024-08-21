@@ -91,6 +91,7 @@ python evaluate_map.py \
 
 ### 5.Results
 
-|  | Hard | Medium | Easy | Trivial | Color | Material | Pattern | Transp |
-| FG-OVD | 13.8 | 20.0 | 20.4 | 35.1 | 25.0 | 19.3 | 22.0 | 27.9 |
+| benchmark | Hard | Medium | Easy | Trivial | Color | Material | Pattern | Transp |
+ |---|---|---|---|---|---|---|---|---|
+| Origin | 13.8 | 20.0 | 20.4 | 35.1 | 25.0 | 19.3 | 22.0 | 27.9 |
 | Ours | 14.7 | 22.1 | 24.3 | 35.2 | 24.7 | 18.7 | 20.1 | 27.0 |
