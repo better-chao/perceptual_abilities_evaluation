@@ -35,3 +35,4 @@ sh ./make.sh
 
 ### 1.Dataset Preparation
 
+In this task, we use FG-OVD benchmark, see[FG-OVD]()
