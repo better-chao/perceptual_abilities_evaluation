@@ -37,7 +37,7 @@ We evaluated configurations with ViT B/16 and ViT L/14 backbones.
 
 Download the [owlvit-large-patch14](https://huggingface.co/google/owlvit-large-patch14) and [owlvit-base-patch16](https://huggingface.co/google/owlvit-base-patch16) to the weights directory.
 
-### ### 4.Evaluation
+### 4.Evaluation
 
 First we use the following command for inference.
 
