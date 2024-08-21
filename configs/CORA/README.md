@@ -88,3 +88,8 @@ python evaluate_map.py \
 '--predictions' refer to the results of model inference
 '--ground_truth' refers to the data to be evaluated in json format
 '--out' refers to where the output evaluation results are stored.
+
+### 5.Results
+
+| Hard | Medium | Easy | Trivial | Color | Material | Pattern | Transp |
+| 
