@@ -4,9 +4,9 @@
 
 ## Abstract
 
-Detic introduces an innovative approach to object detection by leveraging image-level supervision to expand the detector's vocabulary to an unprecedented scale.  It achieves this through a simple yet effective strategy that trains the classifier of a detector on expansive image classification datasets, thereby transcending the limitations imposed by traditional detection datasets.  This approach not only simplifies the implementation process but also enhances compatibility across various detection architectures and backbones, leading to significant improvements in detecting a vast array of object categories, including those not previously annotated with bounding boxes.
+Grounding DINO is an open-set object detector by marrying Transformer-based detector DINO with grounded pre-training, which can detect arbitrary objects with human inputs such as category names or referring expressions. The key solution of open-set object detection is introducing language to a closed-set detector for open-set concept generalization. Grounding DINO can be divided a closed-set detector into three phases and propose a tight fusion solution, which includes a feature enhancer, a language-guided query selection, and a cross-modality decoder for cross-modality fusion. 
 
-![detic-overview](https://github.com/better-chao/perceptual_abilities_evaluation/blob/main/images/detic-overview.png)
+![groundingdino-overview](https://github.com/open-mmlab/mmdetection/assets/42299757/0ed51aeb-3d53-42d8-8563-f6d21364ac95)
 
 ## Installation
 
@@ -54,9 +54,9 @@ Then we use the following command to evaluate.
 
 ```
 python evaluate_map.py \
---predictions eval_fgovd/1_attributes.pkl \
---ground_truth ../FG-OVD/benchmarks/1_attributes.json \
---out eval_fgovd/1_attributes_result.json
+    --predictions eval_fgovd/1_attributes.pkl \
+    --ground_truth ../FG-OVD/benchmarks/1_attributes.json \
+    --out eval_fgovd/1_attributes_result.json
 ```
 '--predictions' refer to the results of model inference
 '--ground_truth' refers to the data to be evaluated in json format
