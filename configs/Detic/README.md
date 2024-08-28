@@ -48,7 +48,7 @@ First we use the following command for inference.
 python detic_inference.py\
  --dataset ../FG-OVD/benchmarks/1_attributes.json\
  --out eval_fgovd/1_attributes.pkl
---n_hardnegatives 5
+ --n_hardnegatives 5
 ```
 '--dataset' refers to the data to be evaluated in json format
 '--out' refers to where the output results are stored
