@@ -6,9 +6,7 @@
 
 Open-vocabulary semantic segmentation presents the challenge of labeling each pixel within an image based on a wide range of text descriptions. In this work, CAT-Seg introduce a novel cost-based approach to adapt vision-language foundation models, notably CLIP, for the intricate task of semantic segmentation. Through aggregating the cosine similarity score, i.e., the cost volume between image and text embeddings, this method potently adapts CLIP for segmenting seen and unseen classes by fine-tuning its encoders, addressing the challenges faced by existing methods in handling unseen classes. Building upon this, CAT-Seg explore methods to effectively aggregate the cost volume considering its multi-modal nature of being established between image and text embeddings.
 
-
-
-![img](D:\data\科研\多模态大模型评估\perceptual_abilities_evaluation\images\catseg-overview.png)
+![img](..\..\images\catseg-overview.png)
 
 ## Installation
 
