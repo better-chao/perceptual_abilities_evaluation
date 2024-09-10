@@ -1,9 +1,9 @@
-# perceptual_abilities_evaluation of PADing
-This is the official code for the [PADing](https://openaccess.thecvf.com/content/CVPR2023/papers/He_Primitive_Generation_and_Semantic-Related_Alignment_for_Universal_Zero-Shot_Segmentation_CVPR_2023_paper.pdf) (CVPR 2023).  
+# Primitive Generation and Semantic-related Alignment for Universal Zero-Shot Segmentation
+Paper is this [URL](https://openaccess.thecvf.com/content/CVPR2023/papers/He_Primitive_Generation_and_Semantic-Related_Alignment_for_Universal_Zero-Shot_Segmentation_CVPR_2023_paper.pdf).The official code is the [PADing](https://github.com/heshuting555/PADing) (CVPR 2023).  
 
 Primitive Generation and Semantic-related Alignment for Universal Zero-Shot Segmentation study universal zero-shot segmentation to achieve 1)panoptic, 2)instance, 3)and semantic segmentation for novel categories without any training samples.  
 ## Abstract
-We study universal zero-shot segmentation in this work to achieve panoptic, instance, and semantic segmentation for novel categories without any training samples. Such zero-shot segmentation ability relies on inter-class relationships in semantic space to transfer the visual knowledge learned from seen categories to unseen ones. Thus, it is desired to well bridge semantic-visual spaces and apply the semantic relationships to visual feature learning. We introduce a generative model to synthesize features for unseen categories, which links semantic and visual spaces as well as address the issue of lack of unseen training data. Furthermore, to mitigate the domain gap between semantic and visual spaces, firstly, we enhance the vanilla generator with learned primitives, each of which contains fine-grained attributes related to categories, and synthesize unseen features by selectively assembling these primitives. Secondly, we propose to disentangle the visual feature into the semantic-related part and the semantic-unrelated part that contains useful visual classification clues but is less relevant to semantic representation. The inter-class relationships of semantic-related visual features are then required to be aligned with those in semantic space, thereby transferring semantic knowledge to visual feature learning. The proposed approach achieves impressively state-of-theart performance on zero-shot panoptic segmentation, instance segmentation, and semantic segmentation.Code will be released at https://github.com/heshuting555/PADing.
+To mitigate the domain gap between semantic and visual spaces, firstly, we enhance the vanilla generator with learned primitives, each of which contains fine-grained attributes related to categories, and synthesize unseen features by selectively assembling these primitives. Secondly, we propose to disentangle the visual feature into the semantic-related part and the semantic-unrelated part that contains useful visual classification clues but is less relevant to semantic representation. The inter-class relationships of semantic-related visual features are then required to be aligned with those in semantic space, thereby transferring semantic knowledge to visual feature learning. The proposed approach achieves impressively state-of-theart performance on zero-shot panoptic segmentation, instance segmentation, and semantic segmentation.
 
 ![image](https://github.com/heshuting555/PADing/blob/main/imgs/framework.png)
 ## Installation
@@ -23,9 +23,7 @@ python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wh
 git clone https://github.com/heshuting555/PADing.git 
 cd PADing  
 pip install -r requirements.txt  
-```  
-## Small target segmentation
-Here we evaluate the performance of PADing on small target segmentation, taking the dataset as an example.  
+```   
 ### Dataset Prepare
 See [data preparation](https://github.com/heshuting555/PADing/blob/main/datasets/README.md).  
 ### Inference
