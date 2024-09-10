@@ -1,5 +1,5 @@
 # ZegCLIP: Towards Adapting CLIP for Zero-shot Semantic Segmentation  
-[paper](https://arxiv.org/abs/2212.03588).This is the official code for the [ZegClip](https://github.com/ZiqinZhou66/ZegCLIP).  
+[Paper](https://arxiv.org/abs/2212.03588)is this URL.This is the official code for the [ZegClip](https://github.com/ZiqinZhou66/ZegCLIP).  
   
 ## Abstract
 In this work, we pursue a simpler-and-efficient one-stage solution that directly extends CLIP's zero-shot prediction capability from image to pixel level. Our investigation starts with a straightforward extension as our baseline that generates semantic masks by comparing the similarity between text and patch embeddings extracted from CLIP. However, such a paradigm could heavily overfit the seen classes and fail to generalize to unseen classes. To handle this issue, we propose three simple-but-effective designs and figure out that they can significantly retain the inherent zero-shot capacity of CLIP and improve pixel-level generalization ability. Incorporating those modifications leads to an efficient zero-shot semantic segmentation system called ZegCLIP.
