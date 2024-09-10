@@ -1,5 +1,5 @@
 # Primitive Generation and Semantic-related Alignment for Universal Zero-Shot Segmentation
-Paper is this [URL](https://openaccess.thecvf.com/content/CVPR2023/papers/He_Primitive_Generation_and_Semantic-Related_Alignment_for_Universal_Zero-Shot_Segmentation_CVPR_2023_paper.pdf).The official code is the [PADing](https://github.com/heshuting555/PADing) (CVPR 2023).  
+Paper is this [URL](https://openaccess.thecvf.com/content/CVPR2023/papers/He_Primitive_Generation_and_Semantic-Related_Alignment_for_Universal_Zero-Shot_Segmentation_CVPR_2023_paper.pdf)(CVPR 2023).The official code is the [PADing](https://github.com/heshuting555/PADing)    
 
 Primitive Generation and Semantic-related Alignment for Universal Zero-Shot Segmentation study universal zero-shot segmentation to achieve 1)panoptic, 2)instance, 3)and semantic segmentation for novel categories without any training samples.  
 ## Abstract
