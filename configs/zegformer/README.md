@@ -1,7 +1,7 @@
 # Decoupling Zero-Shot Semantic Segmentation
 This is the official code for the [ZegFormer](https://arxiv.org/abs/2112.07910) (CVPR 2022).  
 
-ZegFormer is the first framework that decouple the zero-shot semantic segmentation into:   1) class-agnostic segmentation and 2) segment-level zero-shot classification
+ZegFormer is the first framework that decouple the zero-shot semantic segmentation into:   1) class-agnostic segmentation and 2) segment-level zero-shot classification.  
 ## Abstract
 Zero-shot semantic segmentation (ZS3) aims to segment the novel categories that have not been seen in the training. Existing works formulate ZS3 as a pixel-level zeroshot classification problem, and transfer semantic knowledge from seen classes to unseen ones with the help of language models pre-trained only with texts. While simple, the pixel-level ZS3 formulation shows the limited capability to integrate vision-language models that are often pre-trained with image-text pairs and currently demonstrate great potential for vision tasks. The former task does not involve category information and can be directly transferred to group pixels for unseen classes. The latter task performs at segment-level and provides a natural way to leverage large-scale vision-language models pre-trained with image-text pairs (e.g. CLIP) for ZS3. Based on the decoupling formulation, we propose a simple and effective zero-shot semantic segmentation model, called ZegFormer, which outperforms the previous methods on ZS3 standard benchmarks by large margins, e.g., 22 points on the PASCAL VOC and 3 points on the COCO-Stuff in terms of mIoU for unseen classes.   
 
