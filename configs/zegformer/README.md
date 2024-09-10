@@ -4,6 +4,7 @@ This is the official code for the [ZegFormer](https://arxiv.org/abs/2112.07910) 
 ZegFormer is the first framework that decouple the zero-shot semantic segmentation into:   1) class-agnostic segmentation and 2) segment-level zero-shot classification
 ## Abstract
 Zero-shot semantic segmentation (ZS3) aims to segment the novel categories that have not been seen in the training. Existing works formulate ZS3 as a pixel-level zeroshot classification problem, and transfer semantic knowledge from seen classes to unseen ones with the help of language models pre-trained only with texts. While simple, the pixel-level ZS3 formulation shows the limited capability to integrate vision-language models that are often pre-trained with image-text pairs and currently demonstrate great potential for vision tasks. The former task does not involve category information and can be directly transferred to group pixels for unseen classes. The latter task performs at segment-level and provides a natural way to leverage large-scale vision-language models pre-trained with image-text pairs (e.g. CLIP) for ZS3. Based on the decoupling formulation, we propose a simple and effective zero-shot semantic segmentation model, called ZegFormer, which outperforms the previous methods on ZS3 standard benchmarks by large margins, e.g., 22 points on the PASCAL VOC and 3 points on the COCO-Stuff in terms of mIoU for unseen classes.   
+
 ![image](https://github.com/dingjiansw101/ZegFormer/raw/main/figures/adeinferenceCOCO.png)
 ## Installation
 ### Requirements
@@ -25,11 +26,11 @@ cd ZegFormer
 pip install -r requirements.txt  
 ```  
 ### Dataset Prepare
-See [data preparation](https://github.com/dingjiansw101/ZegFormer/blob/main/datasets/README.md)  
+See [data preparation](https://github.com/dingjiansw101/ZegFormer/blob/main/datasets/README.md).  
 ### Training & Evaluation in Command Line  
-To train models with R-101 backbone, download the [pre-trained model](https://dl.fbaipublicfiles.com/detectron2/ImageNetPretrained/MSRA/R-101.pkl)   
-Setting the dataset as this [URL](https://github.com/dingjiansw101/ZegFormer/blob/main/datasets/README.md)  
-For example  
+To train models with R-101 backbone, download the [pre-trained model](https://dl.fbaipublicfiles.com/detectron2/ImageNetPretrained/MSRA/R-101.pkl).   
+Setting the dataset as this [URL](https://github.com/dingjiansw101/ZegFormer/blob/main/datasets/README.md).  
+For example:  
 ```  
 python ./train_net.py \  
   --config-file configs/coco-stuff/zegformer_R101_bs32_60k_vit16_coco-stuff.yaml \  
