@@ -1,5 +1,5 @@
-# perceptual_abilities_evaluation of Cascade-CLIP
-This is the official code for the [Cascade-CLIP](https://github.com/HVision-NKU/Cascade-CLIP) .  
+# Cascade-CLIP: Cascaded Vision-Language Embeddings Alignment for Zero-Shot Semantic Segmentation
+Paper is this [URL](https://arxiv.org/abs/2406.00670).The official code is the [Cascade-CLIP](https://github.com/HVision-NKU/Cascade-CLIP).   
 
 Cascade-CLIP: Cascaded Vision-Language Embeddings Alignment for Zero-Shot Semantic Segmentation.  
 ## Abstract
@@ -18,9 +18,7 @@ pip install openmim
 mim install mmcv-full==1.5.0  
 pip install mmsegmentation==0.24.0  
 pip install -r requirements.txt    
-```  
-## Small target segmentation
-Here we evaluate the performance of Cascade-CLIP on small target segmentation, taking the dataset as an example.  
+```   
 ### Dataset Prepare
 See [data preparation](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md).  
 ### Inference
