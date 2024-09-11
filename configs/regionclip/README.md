@@ -19,7 +19,7 @@ RegionCLIP extends CLIP to learn region-level visual representations. RegionCLIP
 </div>
  
 ## Installation
-Here we use groundingdino's mmdetection implementation, clone the [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x) and follow the [instructions](https://github.com/open-mmlab/mmdetection/blob/dev-3.x/configs/grounding_dino/README.md) to configure the environment.
+Here we use groundingdino's mmdetection implementation, clone the [repo](https://github.com/microsoft/RegionCLIP) and follow the [instructions](https://github.com/microsoft/RegionCLIP/blob/main/docs/INSTALL.md) to configure the environment.
 
 
 ## Domain-related Evaluation
@@ -33,20 +33,21 @@ Download [Diverse Weather](https://github.com/AmingWu/Single-DGOD) Datasets and 
 
 Here we consider two evaluation methods: 1. Zero prediction：Directly use the weights to evaluate on 5 scenarios; 2. Full finetune: Use the weights to perform full finetuning on the source domain, and then evaluate the performance on the unseen target domain.
 
-The Details of the configuration can be found in [grounding_dino_swin-t_finetune_8xb2_20e_weather](grounding_dino_swin-t_finetune_8xb2_20e_weather.py), and we put this configuration file into ./configs/grounding_dino in [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x).
+The Details of the configuration can be found in [test_zeroshot_inference.sh](https://github.com/microsoft/RegionCLIP/blob/main/test_zeroshot_inference.sh).
+
+
+### 3. Pretrained models Preparation
+Check [`MODEL_ZOO.md`](https://github.com/microsoft/RegionCLIP/blob/main/datasets/README.md) for our pretrained models..
 
 ### 3. Zero prediction
 
 ```shell
-# $MMDETROOT represents the main directory of the [repo](https://github.com/open-mmlab/mmdetection/tree/dev-3.x).
+# $MAINROOT represents the main directory of the [repo](https://github.com/microsoft/RegionCLIP/tree/main).
 
-cd $MMDETROOT
-
-# download the pretrained weights
-wget https://download.openmmlab.com/mmdetection/v3.0/grounding_dino/groundingdino_swint_ogc_mmdet-822d7e9d.pth
+cd $MAINROOT
 
 # perform the zero prediction
-python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py groundingdino_swint_ogc_mmdet-822d7e9d.pth
+./test_zeroshot_inference.sh
 ```
 
 ### 4. Source Finetune and evaluation
@@ -54,7 +55,7 @@ python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_
 ```shell
 # finetune on the source domain dataset, here, we use 4 cards to train 20 epochs, scale the learning rate accordingly, and do not train the language model, only the visual model.
 
-./tools/dist_train.sh configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py 4 --work-dir work_dir/weather_work_dir
+./train_transfer_learning.sh
 
 ```
 The model will be saved based on the best performance on the test set.
@@ -62,6 +63,6 @@ The model will be saved based on the best performance on the test set.
 ```shell
 # Then we test the best model on the different unseen target dataset. Here we assume that epoch_20.pth is the best model.
 
-python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py work_dir/weather_work_dir/epoch_20.pth
+./test_transfer_learning.sh
 
 ```
