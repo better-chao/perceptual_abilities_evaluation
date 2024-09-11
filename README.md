@@ -40,7 +40,26 @@ Last update on 2024/09/11
 * [ECCV 2024] Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection [[Paper](https://arxiv.org/abs/2303.05499)][[Code](https://github.com/IDEA-Research/GroundingDINO)]
 * [CVPR 2024] YOLO-World: Real-Time Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2401.17270)][[Code](https://github.com/AILab-CVC/YOLO-World)]
 
+#### VLM Segmentation Models
 
+- [ICLR 2022] Language-driven Semantic Segmentation [[Paper]](https://arxiv.org/abs/2201.03546)[[code]](https://github.com/isl-org/lang-seg)
+- [CVPR 2024] CAT-Seg: Cost Aggregation for Open-Vocabulary Semantic Segmentation [[Paper]](https://arxiv.org/abs/2303.11797)[[code]](https://github.com/KU-CVLAB/CAT-Seg)
+- [CVPR 2023] Side Adapter Network for Open-Vocabulary Semantic Segmentation [[Paper]](https://arxiv.org/abs/2302.12242)[code](https://github.com/MendelXu/SAN)
+- [ECCV 2022] A Simple Baseline for Open-Vocabulary Semantic Segmentation with Pre-trained Vision-language Model [[Paper]](https://arxiv.org/abs/2112.14757) [[code]](https://github.com/MendelXu/zsseg.baseline)
+- [ICML 2023] Open-Vocabulary Universal Image Segmentation with MaskCLIP[[Paper]](https://arxiv.org/abs/2208.08984v2)[[code]](https://github.com/mlpc-ucsd/MaskCLIP)
+- [ICCV 2023] Open-Vocabulary Semantic Segmentation with Decoupled One-Pass Network[[Paper]](https://arxiv.org/abs/2304.01198)[[code]](https://github.com/CongHan0808/DeOP)
+- [NeurIPS 2023] Convolutions Die Hard: Open-Vocabulary Segmentation with Single Frozen Convolutional CLIP[[Paper]](https://arxiv.org/abs/2308.02487) [[code]](https://github.com/bytedance/fc-clip)
+- [NeurIPS 2023] Learning Mask-aware CLIP Representations for Zero-Shot Segmentation [[Paper]](https://arxiv.org/abs/2310.00240) [[code]](https://github.com/jiaosiyu1999/MAFT)
+- [CVPR 2024] SED: A Simple Encoder-Decoder for Open-Vocabulary Semantic Segmentation[[Paper]](https://arxiv.org/pdf/2311.15537v2)[[code]](https://github.com/xb534/SED)
+- [CVPR 2024] Open-Vocabulary Segmentation with Semantic-Assisted Calibration[[Paper]](https://arxiv.org/abs/2312.04089)[[code]](https://github.com/yongliu20/SCAN)
+- [CVPR 2024] Transferable and Principled Efficiency for Open-Vocabulary Segmentation[[Paper]](https://arxiv.org/abs/2404.07448) [[code]](https://github.com/Xujxyang/OpenTrans)
+- [CVPR 2024] Open-Vocabulary Semantic Segmentation with Image Embedding Balancing[[Paper]](https://arxiv.org/abs/2406.09829)[[code]](https://github.com/slonetime/EBSeg)
+- [CVPR 2022] Decoupling Zero-Shot Semantic Segmentation[[Paper]](https://arxiv.org/abs/2112.07910)[[code]](https://github.com/dingjiansw101/ZegFormer)
+- [CVPR 2023] ZegCLIP: Towards Adapting CLIP for Zero-shot Semantic Segmentation[[Paper]](https://arxiv.org/abs/2212.03588) [[code]](https://github.com/ZiqinZhou66/ZegCLIP)
+- [CVPR 2023] Primitive Generation and Semantic-related Alignment for Universal Zero-Shot Segmentation[[Paper]](https://arxiv.org/abs/2306.11087) [[code]](https://github.com/heshuting555/PADing)
+- [ICML 2024] Cascade-CLIP: Cascaded Vision-Language Embeddings Alignment for Zero-Shot Semantic Segmentation[[Paper]](https://arxiv.org/abs/2406.00670) [[code]](https://github.com/HVision-NKU/Cascade-CLIP)
+- [ICML2024] SegCLIP: Patch Aggregation with Learnable Centers for Open-Vocabulary Semantic Segmentation[[Paper]](https://arxiv.org/abs/2211.14813) [[code]](https://github.com/ArrowLuo/SegCLIP)
+- [CVPR 2023] Learning to Generate Text-grounded Mask for Open-world Semantic Segmentation from Only Image-Text Pairs[[Paper]](https://arxiv.org/abs/2212.00785) [[code]](https://github.com/kakaobrain/tcl)
 
 #### VLM Pre-training Methods
 * [CVPR 2024] Efficient Vision-Language Pre-training by Cluster Masking [[Paper](https://arxiv.org/pdf/2405.08815)][[Code](https://github.com/Zi-hao-Wei/Efficient-Vision-Language-Pre-training-by-Cluster-Masking)]

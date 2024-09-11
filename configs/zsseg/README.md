@@ -1,0 +1,135 @@
+# A Simple Baseline for Open Vocabulary Semantic Segmentation with Pre-trained Vision-language Model
+
+[A Simple Baseline for Open-Vocabulary Semantic Segmentation with Pre-trained Vision-language Model](https://arxiv.org/abs/2112.14757)
+
+## Abstract
+
+Recently, open-vocabulary image classification by vision language pre-training has demonstrated incredible achievements, that the model can classify arbitrary categories without seeing additional annotated images of that category. However, it is still unclear how to make the open-vocabulary recognition work well on broader vision problems. This paper targets open-vocabulary semantic segmentation by building it on an off-the-shelf pre-trained vision-language model, i.e., CLIP. However, semantic segmentation and the CLIP model perform on different visual granularity, that semantic segmentation processes on pixels while CLIP performs on images. To remedy the discrepancy in processing granularity, we refuse the use of the prevalent one-stage FCN based framework, and advocate a two-stage semantic segmentation framework, with the first stage extracting generalizable mask proposals and the second stage leveraging an image based CLIP model to perform open-vocabulary classification on the masked image crops which are generated in the first stage. 
+
+<img src="..\..\images\zsseg-overview.png" >
+
+## Installation
+
+```bash
+torch==1.8.0
+torchvision==0.9.0
+detectron2==0.6 #Following https://detectron2.readthedocs.io/en/latest/tutorials/install.html to install it and some required packages
+mmcv==1.3.14
+```
+FurtherMore, install the modified clip package.
+```bash
+cd third_party/CLIP
+python -m pip install -Ue .
+```
+
+## Data Preparation
+In our experiments, five datasets are used. 
+- For Cityscapes and ADE20k, follow the tutorial in [MaskFormer](https://github.com/facebookresearch/MaskFormer).
+- For Pascal Context:
+  - Download data from the official website and extract it like below.
+    ```shell
+    Datasets/
+        pcontext/
+            #http://host.robots.ox.ac.uk/pascal/VOC/voc2010/VOCtrainval_03-May-2010.tar
+            JPEGImages/
+            #https://codalabuser.blob.core.windows.net/public/trainval_merged.json     
+            trainval_merged.json 
+    ```
+  - Format the data to d2 style.
+    install detail packpage from https://github.com/zhanghang1989/detail-api and then
+    ```shell
+    python datasets/prepare_pcontext_sem_seg.py --ori_root_dir datasets/pcontext-59 --save_dir datasets/pcontext-59
+    ```
+- For COCO Stuff 164k:
+  - Download data from the official dataset website and extract it like below.
+     ```bash
+     Datasets/
+          coco/
+               #http://images.cocodataset.org/zips/train2017.zip
+               train2017/ 
+               #http://images.cocodataset.org/zips/val2017.zip
+               val2017/   
+               #http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+               annotations/ 
+               #http://calvin.inf.ed.ac.uk/wp-content/uploads/data/cocostuffdataset/stuffthingmaps_trainval2017.zip
+               stuffthingmaps/ 
+     ```
+  - Format the data to d2 style and split it into Seen (Base) subset and Unseen (Novel) subset.
+     ```bash
+     python datasets/prepare_coco_stuff_164k_sem_seg.py datasets/coco
+     
+     python tools/mask_cls_collect.py datasets/coco/stuffthingmaps_detectron2/train2017_base datasets/coco/stuffthingmaps_detectron2/train2017_base_label_count.pkl
+      
+     python tools/mask_cls_collect.py datasets/coco/stuffthingmaps_detectron2/val2017 datasets/coco/stuffthingmaps_detectron2/val2017_label_count.pkl
+     ```
+- For Pascal VOC 11k:
+  - Download data from the offical dataset website and extract it like below.
+  ```bash
+  datasets/
+     VOC2012/
+          #download http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar and extract it here.
+          JPEGImages/
+          # copy `ImageSets/Segmentation/val.txt` here.
+          val.txt
+          #Download auged annotations from http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/semantic_contours/benchmark.tgz and convert the original mat file to png format. Or download it from https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=0 (Provided in https://github.com/DrSleep/tensorflow-deeplab-resnet#evaluation).
+          SegmentationClassAug/
+          #https://gist.githubusercontent.com/sun11/2dbda6b31acc7c6292d14a872d0c90b7/raw/5f5a5270089239ef2f6b65b1cc55208355b5acca/trainaug.txt
+          train.txt
+        
+  ```
+  - Format the data to d2 style and split it into Seen (Base) subset and Unseen (Novel) subset.
+  ```bash
+  python datasets/prepare_voc_sem_seg.py datasets/VOC2012
+  
+  python tools/mask_cls_collect.py datasets/VOC2012/annotations_detectron2/train_base datasets/VOC2012/annotations_detectron2/train_base_label_count.json
+  
+  python tools/mask_cls_collect.py datasets/VOC2012/annotations_detectron2/val datasets/VOC2012/annotations_detectron2/val_label_count.json
+  ```
+
+## Training and Evaluation
+
+Before training and evaluation, see the tutorial in detectron2. For example, to training a zero shot semantic segmentation model on COCO Stuff:
+
+- Training with manually designed prompts:
+  ```
+  # single prompt
+  python train_net.py --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_single_prompt_bs32_60k.yaml
+  # imagenet prompt
+  python train_net.py --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_imagenet_prompt_bs32_60k.yaml
+  # vild prompt
+  python train_net.py --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_vild_prompt_bs32_60k.yaml
+  ```
+- Training with learned prompts:
+  ```bash
+  # Training prompts
+  python train_net.py --config-file configs/coco-stuff-164k-156/zero_shot_proposal_classification_learn_prompt_bs32_10k.yaml --num-gpus 8 
+  # Training seg model
+  python train_net.py --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_bs32_60k.yaml --num-gpus 8 MODEL.CLIP_ADAPTER.PROMPT_CHECKPOINT ${TRAINED_PROMPTS}
+  ```
+  Note: the prompts training will be affected by the random seed. It is better to run it multiple times.
+
+  For evaluation, add `--eval-only` flag to the traing command.
+
+- Trained Model
+  - For cross-dataset setting ( Train on seen classes and test on different datasets.)
+    [Trained Model](https://drive.google.com/file/d/1pb6UeXoMPy5xdEBtFcQYLOBKZt0xufKY/view?usp=sharing)
+    
+    ```shell
+    # TRAINED_MODEL_PATH: the path of your downlaoded model file.
+    # train on coco 156 class, test on other dataset
+    # Trained with 
+    # python train_net.py --resume --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_vild_prompt_bs32_60k.yaml --num-gpus 8 MODEL.CLIP_ADAPTER.CLIP_ENSEMBLE True SOLVER.MAX_ITER 120000
+    # DATASET: the name of other datset, can be ade20k-150, ade20k-847, cityscapes-19, pcontext-59-59. Don't test on pascal voc as it overlaps with coco stuff largely.
+    python train_net.py --eval-only --resume --config-file configs/${DATASET}/cross_dataset_test_only.yaml --num-gpus 8 MODEL.WEIGHTS ${TRAINED_MODEL_PATH}
+     
+    ```
+  
+  - For zero-shot setting ( Train on seen classes and test on unseen classes of the same dataset.)
+    [Trained Model](https://drive.google.com/file/d/1jDmR4fL5Wm0UyMDd5LhsOl6T2RX2X9R5/view?usp=sharing) 
+    ```shell
+    # TRAINED_MODEL_PATH: the path of your downloaded model file.
+    # Trained with learned prompts
+    python train_net.py --eval-only --config-file configs/coco-stuff-164k-156/zero_shot_maskformer_R101c_bs32_60k.yaml --num-gpus 8 MODEL.WEIGHTST ${TRAINED_MODEL_PATH}
+    ```
+  
+  Note: For both setting, the model are only trained on coco stuff 156 classes for convenient.
