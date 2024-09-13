@@ -44,13 +44,16 @@ pip install -v -e .
 ## Environment
 + LOCAL
 
-    /home/yajie/anaconda2023/envs/tcl
+    /home/yajie/anaconda2023/envs/maskclip
 
 # Dataset Preparation
 Please refer to [dataset_prepare.md](docs/en/dataset_prepare.md#prepare-datasets). In our paper, we experiment with [Pascal VOC](docs/en/dataset_prepare.md#pascal-voc), [Pascal Context](docs/en/dataset_prepare.md#pascal-context), and [COCO Stuff 164k](docs/en/dataset_prepare.md#coco-stuff-164k).
 
 # MaskCLIP
 MaskCLIP doesn't require any training. We only need to (1) download and convert the CLIP model and (2) prepare the text embeddings of the objects of interest.
+
+
+**Step -1.** Comment MaskCLIP/mmseg/datasets/pipelines/transforms.py line 10, line 1315-1333
 
 **Step 0.** Download and convert the CLIP models, e.g.,
 ```shell
