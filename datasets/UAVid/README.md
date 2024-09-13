@@ -1,40 +1,28 @@
-# CamVid:The Cambridge-driving Labeled Video Database
-[Segmentation and Recognition Using Structure from Motion Point Clouds](https://link.springer.com/chapter/10.1007/978-3-540-88682-2_5) .  
+# UAVid: A Semantic Segmentation Dataset for UAV Imagery
+[UAVid: A Semantic Segmentation Dataset for UAV Imagery](https://arxiv.org/abs/1810.10438) .  
  
 ## Abstract
-The CamVid dataset is a road scene dataset used for semantic segmentation tasks, particularly in urban environments. It contains video sequences captured from a vehicle driving through streets, with pixel-level annotations for 11 object classes, including roads, buildings, pedestrians, and vehicles. CamVid provides essential ground truth for the development and evaluation of computer vision models focused on understanding and segmenting real-world urban scenes.  
+There already exist several semantic segmentation datasets for comparison among semantic segmentation methods in complex urban scenes, such as the Cityscapes and CamVid datasets, where the side views of the objects are captured with a camera mounted on the driving car. There also exist semantic labeling datasets for the airborne images and the satellite images, where the top views of the objects are captured. However, only a few datasets capture urban scenes from an oblique Unmanned Aerial Vehicle (UAV) perspective, where both of the top view and the side view of the objects can be observed, providing more information for object recognition. UAVid dataset is a new high-resolution UAV semantic segmentation dataset as a complement, which brings new challenges, including large scale variation, moving object recognition and temporal consistency preservation. Our UAV dataset consists of 30 video sequences capturing 4K high-resolution images in slanted views. In total, 300 images have been densely labeled with 8 classes for the semantic labeling task. We have provided several deep learning baseline methods with pre-training, among which the proposed Multi-Scale-Dilation net performs the best via multi-scale feature extraction.  
 
 ## Dataset Path and Annotation Explanation 
 ```
-/gpfsdata/home/wanqiao/dataset/camvid
-|---camvid_train  
-|   |---xxx.png  
-|   |---xxx.png  
-|   |---xxx.png  
-|   |...  
-|---camvid_val  
-|   |---xxx.png  
-|   |---xxx.png  
-|   |---xxx.png  
-|   |...  
-|---camvid_test  
-|   |---xxx.png
-|   |---xxx.png
-|   |---xxx.png
-|   |...
-|---camvid_train_labels
-|   |---xxx.png
-|   |---xxx.png
-|   |---xxx.png
-|   |...
-|---camvid_val_labels
-|   |---xxx.png
-|   |---xxx.png
-|   |---xxx.png
-|   |...
-|---camvid_test_labels
-|   |---xxx.png
-|   |---xxx.png
-|   |---xxx.png
-|   |...   
+/gpfsdata/home/wanqiao/dataset/UAVid
+|---train  
+|   |---Images  
+|   |   |---xxx.png
+|   |   |---xxx.png
+|   |   |...   
+|   |---Labels
+|   |   |---xxx.png
+|   |   |---xxx.png  
+|   |   |...  
+|---val  
+|   |---Images  
+|   |   |---xxx.png
+|   |   |---xxx.png
+|   |   |...   
+|   |---Labels
+|   |   |---xxx.png
+|   |   |---xxx.png  
+|   |   |...   
 ```    
