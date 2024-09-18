@@ -1,8 +1,11 @@
-## Awesome Vision-Language Models [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Vision-Language Model Evaluation for Dense Prediction Vision Tasks: A Survey <img src='./images/logo.png' width="6%">
 
 <img src="./images/overview.jpg" width="96%" height="96%">
 
+This is the repository of **Vision-Language Model Evaluation for Dense Prediction Vision Tasks: A Survey**
+
 ## Models
+
 Last update on 2024/09/18
 
 #### VLM Detection Models
@@ -43,8 +46,6 @@ Last update on 2024/09/18
 
 ### Datasets for Detection
 
-#### Object Detection
-
 | Dataset                                             |  Year  | Classes | Training | Testing |Evaluation Metric| Project|
 |-----------------------------------------------------|:------:|:-------:|:--------:|:-------:|:------:|:-----------:|
 |COCO 2014 Detection|2014|80|83,000|41,000|Box mAP|[Project](https://www.kaggle.com/datasets/jeffaudi/coco-2014-dataset-for-yolov3)|
@@ -52,9 +53,7 @@ Last update on 2024/09/18
 |LVIS|2019|1203|118,000|5,000|Box mAP|[Project](https://www.lvisdataset.org/)|
 |ODinW|2022|314|132,413|20,070|Box mAP|[Project](https://eval.ai/web/challenges/challenge-page/1839/overview)|
 
-### Datasets for Detection
-
-#### Semantic Segmentation
+### Datasets for Segmentation
 
 | Dataset         | Year | Classes | Training | Testing | Evaluation Metric |                           Project                            |
 | :-------------- | :--- | :-----: | :------: | :-----: | :---------------: | :----------------------------------------------------------: |
