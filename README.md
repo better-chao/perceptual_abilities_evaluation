@@ -3,7 +3,7 @@
 <img src="./images/overview.jpg" width="96%" height="96%">
 
 ## Models
-Last update on 2024/09/11
+Last update on 2024/09/18
 
 #### VLM Detection Models
 
