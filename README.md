@@ -25,47 +25,46 @@ Last update on 2024/09/18
 
 **Second Type**
 
-[ECCV 2022] Detecting Twenty-thousand Classes using Image-level Supervision [[Paper](https://arxiv.org/abs/2201.02605)][[Code](https://github.com/facebookresearch/Detic)]
+* [ECCV 2022] Detecting Twenty-thousand Classes using Image-level Supervision [[Paper](https://arxiv.org/abs/2201.02605)][[Code](https://github.com/facebookresearch/Detic)]
 
-[ICLR 2023] Learning Object-Language Alignments for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2211.14843)][[Code](https://github.com/clin1223/VLDet)]
+* [ICLR 2023] Learning Object-Language Alignments for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2211.14843)][[Code](https://github.com/clin1223/VLDet)]
 
-[CVPR 2022] Learning to Prompt for Open-Vocabulary Object Detection with Vision-Language Model [[Paper](https://arxiv.org/abs/2203.14940)][[Code](https://github.com/dyabel/detpro)]
+* [CVPR 2022] Learning to Prompt for Open-Vocabulary Object Detection with Vision-Language Model [[Paper](https://arxiv.org/abs/2203.14940)][[Code](https://github.com/dyabel/detpro)]
+* [ECCV 2022] Open-Vocabulary DETR with Conditional Matching [[Paper](https://arxiv.org/abs/2203.11876)][[Code](https://github.com/yuhangzang/OV-DETR)]
 
-[ECCV 2022] Open-Vocabulary DETR with Conditional Matching [[Paper](https://arxiv.org/abs/2203.11876)][[Code](https://github.com/yuhangzang/OV-DETR)]
+* [ICLR 2022] Open-vocabulary Object Detection via Vision and Language Knowledge Distillation [[Paper](https://arxiv.org/abs/2104.13921)][[Code](https://github.com/tensorflow/tpu/tree/master/models/official/detection/projects/vild)]
 
-[ICLR 2022] Open-vocabulary Object Detection via Vision and Language Knowledge Distillation [[Paper](https://arxiv.org/abs/2104.13921)][[Code](https://github.com/tensorflow/tpu/tree/master/models/official/detection/projects/vild)]
+* [CVPR 2022] Open-Vocabulary One-Stage Detection with Hierarchical Visual-Language Knowledge Distillation [[Paper](https://arxiv.org/abs/2203.10593)][[Code](https://github.com/mengqiDyangge/HierKD)]
 
-[CVPR 2022] Open-Vocabulary One-Stage Detection with Hierarchical Visual-Language Knowledge Distillation [[Paper](https://arxiv.org/abs/2203.10593)][[Code](https://github.com/mengqiDyangge/HierKD)]
+* [ECCV 2022] PromptDet: Towards Open-vocabulary Detection using Uncurated Images [[Paper](https://arxiv.org/abs/2203.16513)][[Code](https://github.com/fcjian/PromptDet)]
 
-[ECCV 2022] PromptDet: Towards Open-vocabulary Detection using Uncurated Images [[Paper](https://arxiv.org/abs/2203.16513)][[Code](https://github.com/fcjian/PromptDet)]
+* [CVPR 2023] Aligning Bag of Regions for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2302.13996)][[Code](https://github.com/wusize/ovdet)]
 
-[CVPR 2023] Aligning Bag of Regions for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2302.13996)][[Code](https://github.com/wusize/ovdet)]
+* [NeurIPS 2023] CoDet: Co-Occurrence Guided Region-Word Alignment for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2310.16667)][[Code](https://github.com/CVMI-Lab/CoDet)]
 
-[NeurIPS 2023] CoDet: Co-Occurrence Guided Region-Word Alignment for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2310.16667)][[Code](https://github.com/CVMI-Lab/CoDet)]
+* [CVPR 2023] CORA: Adapting CLIP for Open-Vocabulary Detection with Region Prompting and Anchor Pre-Matching [[Paper](https://arxiv.org/abs/2303.13076)][[Code](https://github.com/tgxs002/CORA)]
 
-[CVPR 2023] CORA: Adapting CLIP for Open-Vocabulary Detection with Region Prompting and Anchor Pre-Matching [[Paper](https://arxiv.org/abs/2303.13076)][[Code](https://github.com/tgxs002/CORA)]
+* [ICCV 2023]  Distilling DETR with Visual-Linguistic Knowledge for Open-Vocabulary Object Detection [[Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Distilling_DETR_with_Visual-Linguistic_Knowledge_for_Open-Vocabulary_Object_Detection_ICCV_2023_paper.pdf)][[Code](https://github.com/hikvision-research/opera/tree/main/configs/dk-detr)]
 
-[ICCV 2023]  Distilling DETR with Visual-Linguistic Knowledge for Open-Vocabulary Object Detection [[Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Distilling_DETR_with_Visual-Linguistic_Knowledge_for_Open-Vocabulary_Object_Detection_ICCV_2023_paper.pdf)][[Code](https://github.com/hikvision-research/opera/tree/main/configs/dk-detr)]
+* [arxiv] DST-Det: Simple Dynamic Self-Training for Open-Vocabulary Object Detection[[Paper](https://arxiv.org/abs/2310.01393)][[Code](https://github.com/xushilin1/dst-det)]
 
-[arxiv] DST-Det: Simple Dynamic Self-Training for Open-Vocabulary Object Detection[[Paper](https://arxiv.org/abs/2310.01393)][[Code](https://github.com/xushilin1/dst-det)]
+* [ICCV 2023] EdaDet: Open-Vocabulary Object Detection Using Early Dense Alignment [[Paper](https://arxiv.org/abs/2309.01151)]
 
-[ICCV 2023] EdaDet: Open-Vocabulary Object Detection Using Early Dense Alignment [[Paper](https://arxiv.org/abs/2309.01151)]
+* [ICLR 2023] F-VLM: Open-Vocabulary Object Detection upon Frozen Vision and Language Models [[Paper](https://arxiv.org/abs/2209.15639)][[Code](https://github.com/google-research/google-research/tree/master/fvlm)]
 
-[ICLR 2023] F-VLM: Open-Vocabulary Object Detection upon Frozen Vision and Language Models [[Paper](https://arxiv.org/abs/2209.15639)][[Code](https://github.com/google-research/google-research/tree/master/fvlm)]
+* [ICML 2023] Multi-Modal Classifiers for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2306.05493)][[Code](https://github.com/prannaykaul/mm-ovod)]
 
-[ICML 2023] Multi-Modal Classifiers for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2306.05493)][[Code](https://github.com/prannaykaul/mm-ovod)]
+* [CVPR 2023] Object-Aware Distillation Pyramid for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2303.05892)][[Code](https://github.com/LutingWang/OADP)]
 
-[CVPR 2023] Object-Aware Distillation Pyramid for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2303.05892)][[Code](https://github.com/LutingWang/OADP)]
+* [arxiv] Prompt-Guided Transformers for End-to-End Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2303.14386)]
 
-[arxiv] Prompt-Guided Transformers for End-to-End Open-Vocabulary Object Detection [[Paper](Prompt-Guided Transformers for End-to-End Open-Vocabulary Object Detection)]
+* [CVPR 2023] Region-Aware Pretraining for Open-Vocabulary Object Detection with Vision Transformers [[Paper](https://arxiv.org/abs/2305.07011)][[Code](https://github.com/google-research/google-research/tree/master/fvlm/rovit)]
 
-[CVPR 2023] Region-Aware Pretraining for Open-Vocabulary Object Detection with Vision Transformers [[Paper](https://arxiv.org/abs/2305.07011)][[Code](https://github.com/google-research/google-research/tree/master/fvlm/rovit)]
+* [CVPR 2024] Taming Self-Training for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2308.06412)][[Code](https://github.com/xiaofeng94/SAS-Det)]
 
-[CVPR 2024] Taming Self-Training for Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2308.06412)][[Code](https://github.com/xiaofeng94/SAS-Det)]
+* [ICLR 2024] CLIPSelf: Vision Transformer Distills Itself for Open-Vocabulary Dense Prediction [[Paper](https://arxiv.org/abs/2310.01403)][[Code](https://github.com/wusize/CLIPSelf)]
 
-[ICLR 2024] CLIPSelf: Vision Transformer Distills Itself for Open-Vocabulary Dense Prediction [[Paper](https://arxiv.org/abs/2310.01403)][[Code](https://github.com/wusize/CLIPSelf)]
-
-[WACV 2024] LP-OVOD: Open-Vocabulary Object Detection by Linear Probing [[Paper](https://arxiv.org/abs/2310.17109)][[Code](https://github.com/VinAIResearch/LP-OVOD)]
+* [WACV 2024] LP-OVOD: Open-Vocabulary Object Detection by Linear Probing [[Paper](https://arxiv.org/abs/2310.17109)][[Code](https://github.com/VinAIResearch/LP-OVOD)]
 
 
 
