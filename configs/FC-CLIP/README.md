@@ -19,7 +19,7 @@ This repo contains the code for our paper [**Convolutions Die Hard: Open-Vocabul
 
 
 ## Installation
-
+集群环境位于`/gpfsdata/home/wenrui/anaconda3/envs/fcclip`
 See [installation instructions](INSTALL.md).
 
 ## Getting Started
