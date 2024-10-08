@@ -34,6 +34,7 @@ Results on Pascal VOC, Pascal Context and ADE20K in the cross-dataset setting
 
 ## Guideline
 ### Setup environment
+在集群中的环境位于：`/gpfsdata/home/wenrui/anaconda3/envs/deop/`
 <details>
   <summary> Environment </summary>
   
