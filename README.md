@@ -102,20 +102,20 @@ Last update on 2025/04/09
 |LVIS|2019|1203|100,170|19,809|Box mAP|[Project](https://www.lvisdataset.org/)|
 |ODinW|2022|314|132,413|20,070|Box mAP|[Project](https://eval.ai/web/challenges/challenge-page/1839/overview)|
 |Objects365|2019|365|600,000|38,000|Box mAP|[Project](https://www.objects365.org/)|
-|Stanford Dogs|2011|120|12000|8580|Box mAP|[Project](http://vision.stanford.edu/aditya86/ImageNetDogs/)|
-|CUB-200-2011|2011|200|5994|5794|Box mAP|[Project](https://www.vision.caltech.edu/datasets/cub_200_2011/)|
-|Cityscapes|2016|8|2975|500|Box mAP|[Project](https://www.cityscapes-dataset.com/)|
-|Foggy Cityscapes|2018|8|2975|500|Box mAP|[Project](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/)|
-|WaterColor|2018|6|1000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
-|Comic|2018|6|1000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
-|KITTI|2012|1|7481|-|Box mAP|[Project](https://www.cvlibs.net/datasets/kitti/)|
-|Sim10K|2016|1|10000|-|Box mAP|[Project](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)|
+|Stanford Dogs|2011|120|12,000|8,580|Box mAP|[Project](http://vision.stanford.edu/aditya86/ImageNetDogs/)|
+|CUB-200-2011|2011|200|5,994|5,794|Box mAP|[Project](https://www.vision.caltech.edu/datasets/cub_200_2011/)|
+|Cityscapes|2016|8|2,975|500|Box mAP|[Project](https://www.cityscapes-dataset.com/)|
+|Foggy Cityscapes|2018|8|2,975|500|Box mAP|[Project](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/)|
+|WaterColor|2018|6|1,000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
+|Comic|2018|6|1,000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
+|KITTI|2012|1|7,481|-|Box mAP|[Project](https://www.cvlibs.net/datasets/kitti/)|
+|Sim10K|2016|1|10,000|-|Box mAP|[Project](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)|
 |VOC-C|2019|20|543,115|553,185|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
-|COCO-C|2019|80|11237265|475000|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
-|Cityscapes-C|2019|8|282625|47500|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
-|CrowdHuman|2018|1|15000|4370|Box mAP|[Project](https://www.crowdhuman.org/)|
-|OCHuman|2019|1|-|2500|Box mAP|[Project](https://github.com/liruilong940607/OCHumanApi)|
-|WiderPerson|2019|1|7891|1000|Box mAP|[Project](http://www.cbsr.ia.ac.cn/users/sfzhang/WiderPerson/)|
+|COCO-C|2019|80|11,237,265|475,000|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
+|Cityscapes-C|2019|8|282,625|47,500|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
+|CrowdHuman|2018|1|15,000|4,370|Box mAP|[Project](https://www.crowdhuman.org/)|
+|OCHuman|2019|1|-|2,500|Box mAP|[Project](https://github.com/liruilong940607/OCHumanApi)|
+|WiderPerson|2019|1|7,891|1,000|Box mAP|[Project](http://www.cbsr.ia.ac.cn/users/sfzhang/WiderPerson/)|
 
 ### Datasets for Segmentation
 
