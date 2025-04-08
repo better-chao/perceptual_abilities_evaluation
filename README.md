@@ -1,12 +1,12 @@
-# Vision-Language Model Evaluation for Dense Prediction Vision Tasks: A Survey <img src='./images/logo.png' width="6%">
+# Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation <img src='./images/logo.png' width="6%">
 
-<img src="./images/overview.jpg" width="96%" height="96%">
+<img src="./images/intro.png" width="96%" height="96%">
 
-This is the repository of **Vision-Language Model Evaluation for Dense Prediction Vision Tasks: A Survey**
+This is the repository of **Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation**
 
 ## Models
 
-Last update on 2024/09/18
+Last update on 2025/04/09
 
 #### VLM Detection Models
 
@@ -22,6 +22,7 @@ Last update on 2024/09/18
 * [CVPR 2024] DetCLIPv3: Towards Versatile Generative Open-vocabulary Object Detection [[Paper](https://arxiv.org/abs/2404.09216)]
 * [ECCV 2024] Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection [[Paper](https://arxiv.org/abs/2303.05499)][[Code](https://github.com/IDEA-Research/GroundingDINO)]
 * [CVPR 2024] YOLO-World: Real-Time Open-Vocabulary Object Detection [[Paper](https://arxiv.org/abs/2401.17270)][[Code](https://github.com/AILab-CVC/YOLO-World)]
+* [arxiv] OV-DINO: Unified Open-Vocabulary Detection with Language-Aware Selective Fusion [[Paper](https://arxiv.org/abs/2407.07844)][[Code](https://github.com/wanghao9610/OV-DINO)]
 
 **Second Type**
 
@@ -96,9 +97,25 @@ Last update on 2024/09/18
 | Dataset                                             |  Year  | Classes | Training | Testing |Evaluation Metric| Project|
 |-----------------------------------------------------|:------:|:-------:|:--------:|:-------:|:------:|:-----------:|
 |COCO 2014 Detection|2014|80|83,000|41,000|Box mAP|[Project](https://www.kaggle.com/datasets/jeffaudi/coco-2014-dataset-for-yolov3)|
-|COCO 2017 Detection|2017|80|118,000|5,000|Box mAP|[Project](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset)|
-|LVIS|2019|1203|118,000|5,000|Box mAP|[Project](https://www.lvisdataset.org/)|
+|COCO 2017 Detection|2017|80|118,287|5,000|Box mAP|[Project](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset)|
+|PASCAL VOC|2012|20|5,717|5,823|Box mAP|[Project](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)|
+|LVIS|2019|1203|100,170|19,809|Box mAP|[Project](https://www.lvisdataset.org/)|
 |ODinW|2022|314|132,413|20,070|Box mAP|[Project](https://eval.ai/web/challenges/challenge-page/1839/overview)|
+|Objects365|2019|365|600,000|38,000|Box mAP|[Project](https://www.objects365.org/)|
+|Stanford Dogs|2011|120|12000|8580|Box mAP|[Project](http://vision.stanford.edu/aditya86/ImageNetDogs/)|
+|CUB-200-2011|2011|200|5994|5794|Box mAP|[Project](https://www.vision.caltech.edu/datasets/cub_200_2011/)|
+|Cityscapes|2016|8|2975|500|Box mAP|[Project](https://www.cityscapes-dataset.com/)|
+|Foggy Cityscapes|2018|8|2975|500|Box mAP|[Project](https://people.ee.ethz.ch/~csakarid/SFSU_synthetic/)|
+|WaterColor|2018|6|1000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
+|Comic|2018|6|1000|-|Box mAP|[Project](https://github.com/naoto0804/cross-domain-detection)|
+|KITTI|2012|1|7481|-|Box mAP|[Project](https://www.cvlibs.net/datasets/kitti/)|
+|Sim10K|2016|1|10000|-|Box mAP|[Project](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)|
+|VOC-C|2019|20|543,115|553,185|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
+|COCO-C|2019|80|11237265|475000|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
+|Cityscapes-C|2019|8|282625|47500|Box mAP|[Project](https://github.com/bethgelab/robust-detection-benchmark)|
+|CrowdHuman|2018|1|15000|4370|Box mAP|[Project](https://www.crowdhuman.org/)|
+|OCHuman|2019|1|-|2500|Box mAP|[Project](https://github.com/liruilong940607/OCHumanApi)|
+|WiderPerson|2019|1|7891|1000|Box mAP|[Project](http://www.cbsr.ia.ac.cn/users/sfzhang/WiderPerson/)|
 
 ### Datasets for Segmentation
 
