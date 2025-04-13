@@ -4,6 +4,17 @@
 
 This is the repository of **Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation**
 
+**Evaluation Radar Results**:
+
+<p align="center">
+  <img src="images/radar_det_text_prompt.png" width="45%">
+  <img src="images/radar_det_visual_finetuning.png" width="45%">
+
+<p align="center">
+  <img src="images/radar_det_zero_pred.png" width="45%">
+  <img src="images/radar_seg.png" width="45%">
+</p>
+
 ## Models
 
 Last update on 2025/04/09
