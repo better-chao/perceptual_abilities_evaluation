@@ -274,8 +274,8 @@ class VLFusionModule(BaseModel):
         self.lang_dim = self.lang_cfg.hidden_size
         self._init_layers()
 
-        self.tunable_linear = torch.nn.Linear(self.lang_dim, 1000, bias=False)
-        self.tunable_linear.weight.data.fill_(0.0)
+        # self.tunable_linear = torch.nn.Linear(self.lang_dim, 1000, bias=False)
+        self.tunable_linear = torch.nn.Linear(self.lang_dim, self.lang_dim)
 
     def _init_layers(self) -> None:
         """Initialize layers of the model."""
@@ -338,9 +338,13 @@ class VLFusionModule(BaseModel):
         else:
             embedding = language_feats['embedded']
 
-        embedding = self.tunable_linear.weight[:embedding.size(1), :].unsqueeze(0) + embedding
+        # embedding = self.tunable_linear.weight[:embedding.size(1), :].unsqueeze(0) + embedding
+        # language_feats['embedded'] = embedding
+        # language_feats['hidden'] = self.tunable_linear.weight[:embedding.size(1), :].unsqueeze(0) + language_feats['hidden']
+
+        embedding = self.tunable_linear(embedding)
         language_feats['embedded'] = embedding
-        language_feats['hidden'] = self.tunable_linear.weight[:embedding.size(1), :].unsqueeze(0) + language_feats['hidden']
+        language_feats['hidden'] = self.tunable_linear(language_feats['hidden'])
 
         embedding = F.normalize(embedding, p=2, dim=-1)
         dot_product_proj_tokens = self.dot_product_projection_text(embedding /
