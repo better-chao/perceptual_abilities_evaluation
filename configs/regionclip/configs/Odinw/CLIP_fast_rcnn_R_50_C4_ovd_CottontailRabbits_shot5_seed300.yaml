@@ -1,0 +1,19 @@
+_BASE_: ../COCO-InstanceSegmentation/CLIP_fast_rcnn_R_50_C4_ovd.yaml
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 1
+DATASETS:
+  TRAIN:
+  - CottontailRabbits_shot5_seed300
+  TEST:
+  - CottontailRabbits_test
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.002
+  STEPS: (12000, 16000)
+  MAX_ITER: 5
+  WARMUP_ITERS: 25
+  CLIP_GRADIENTS:
+    ENABLED: true
+  AMP:
+    ENABLED: true
