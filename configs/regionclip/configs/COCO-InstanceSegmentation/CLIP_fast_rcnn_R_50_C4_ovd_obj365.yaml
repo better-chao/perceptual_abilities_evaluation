@@ -1,0 +1,7 @@
+_BASE_: "./CLIP_fast_rcnn_R_50_C4_ovd.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 365
+DATASETS:
+  TRAIN: ("obj365_train",)
+  TEST: ("obj365_val",)

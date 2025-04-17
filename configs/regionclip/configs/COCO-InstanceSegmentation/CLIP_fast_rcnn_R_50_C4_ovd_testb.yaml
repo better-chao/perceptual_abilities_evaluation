@@ -1,0 +1,3 @@
+_BASE_: "./CLIP_fast_rcnn_R_50_C4_ovd.yaml"
+DATASETS:
+  TEST: ("coco_2017_ovd_b_test",)

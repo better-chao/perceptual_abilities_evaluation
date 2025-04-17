@@ -1,0 +1,15 @@
+_BASE_: "./CLIP_fast_rcnn_R_50_C4_ovd.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 80
+DATASETS:
+  TRAIN: ("coco_migc",)
+  TEST: ("coco_2017_val",)
+TEST:
+  EVAL_PERIOD: 1000
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.002
+  STEPS: (1500, )
+  MAX_ITER: 2010
+  WARMUP_ITERS: 200
