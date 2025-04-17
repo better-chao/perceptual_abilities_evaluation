@@ -1,0 +1,7 @@
+_BASE_: ../COCO-InstanceSegmentation/CLIP_fast_rcnn_R_50_C4_ovd.yaml
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 8
+DATASETS:
+  TEST:
+  - cityscapes_c_jpeg_compression_Svr5
