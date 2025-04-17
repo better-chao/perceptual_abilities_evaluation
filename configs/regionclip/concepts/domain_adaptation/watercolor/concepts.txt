@@ -1,0 +1,6 @@
+motorbike
+bird
+car
+cat
+dog
+person

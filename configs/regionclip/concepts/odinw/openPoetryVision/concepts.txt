@@ -1,0 +1,43 @@
+American Typewriter
+Andale Mono
+Apple Chancery
+Arial
+Avenir
+Baskerville
+Big Caslon
+Bradley Hand
+Brush Script MT
+Chalkboard
+Comic Sans MS
+Copperplate
+Courier
+Didot
+Futura
+Geneva
+Georgia
+Gill Sans
+Helvetica
+Herculanum
+Impact
+Kefa
+Lucida Grande
+Luminari
+Marker Felt
+Menlo
+Monaco
+Noteworthy
+Optima
+PT Sans
+PT Serif
+Palatino
+Papyrus
+Phosphate
+Rockwell
+SF Pro
+SignPainter
+Skia
+Snell Roundhand
+Tahoma
+Times New Roman
+Trebuchet MS
+Verdana
