@@ -1,0 +1,21 @@
+_BASE_: "../COCO-InstanceSegmentation/CLIP_fast_rcnn_R_50_C4_ovd.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 0
+DATASETS:
+  TRAIN:
+  - 
+  TEST:
+  - 
+TEST:
+  EVAL_PERIOD: 1
+SOLVER:
+  IMS_PER_BATCH: 4
+  BASE_LR: 0.002 # 0.0002
+  STEPS: (12000, 16000)
+  MAX_ITER: 18000  # 17.4 epochs
+  WARMUP_ITERS: 10
+  CLIP_GRADIENTS:
+    ENABLED: True
+  AMP:
+    ENABLED: True
