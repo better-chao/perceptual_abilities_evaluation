@@ -130,25 +130,25 @@ Last update on 2025/04/09
 
 ### Datasets for Segmentation
 
-| Dataset         | Year | Classes | Training | Testing |  Evaluation Metric  |                           Project                            |
-| :-------------- | :--- | :-----: | :------: | :-----: | :-----------------: | :----------------------------------------------------------: |
-| COCO-Stuff      | 2018 |   172   |   118k   |   20k   |        mIoU         |      [Project](https://github.com/nightrome/cocostuff)       |
-| PASCAL VOC 2012 | 2012 |   20    |  1,464   |  1,449  |        mIoU         |  [Project](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)  |
-| PASCAL Content  | 2014 |   459   |  4,998   |  5,105  |        mIoU         | [Project](https://www.cs.stanford.edu/~roozbeh/pascal-context/) |
-| Cityscapes      | 2016 |   19    |  2,975   |   500   |        mIoU         |        [Project](https://www.cityscapes-dataset.com/)        |
-| ADE20k          | 2017 |   150   |  25,574  |  2,000  |        mIoU         | [Project](https://groups.csail.mit.edu/vision/datasets/ADE20K/) |
-| MESS*           | 2023 |    -    |    -     |    -    |        mIoU         |        [Project](https://github.com/blumenstiel/MESS)        |
-| PASCAL-Part     | 2023 |   116   |   8432   |   851   |        mIoU         |     [Project](https://github.com/OpenRobotLab/OV_PARTS)      |
-| ADE20k-Part-234 | 2023 |   234   |   7348   |  1017   |        mIoU         |     [Project](https://github.com/OpenRobotLab/OV_PARTS)      |
-| PASCAL-5i**     | 2015 |   20    |    -     |    -    |    mIoU, FB-IoU     |  [Project](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)  |
-| COCO-20i**      | 2014 |   80    |    -     |    -    |    mIoU, FB-IoU     |             [Project](https://cocodataset.org/)              |
-| FSS-1000        | 2020 |  1000   |   5200   |  2400   | mIoU, FB-IoUFSS-100 |        [Project](https://github.com/HKUSTCV/FSS-1000)        |
-| OCHuman         | 2019 |    1    |    -     |  2231   |   AP, AP50, AP75    |   [Project](https://github.com/liruilong940607/OCHumanApi)   |
-| CIS             | 2023 |    1    |    -     |   459   |   AP, AP50, AP75    |       [Project](https://github.com/shanghangjiang/CIS)       |
-| COCO-OCC        | 2021 |   80    |    -     |  1005   |   AP, AP50, AP75    |          [Project](https://github.com/lkeab/BCNet)           |
-| CamVid          | 2008 |   11    |   467    |   233   |        mIoU         | [Project](https://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/) |
-| UAVid           | 2018 |    9    |   200    |   100   |        mIoU         |                [Projects](https://uavid.nl/)                 |
-| UDD6            | 2018 |   12    |   205    |   45    |        mIoU         |          [Project](https://github.com/MarcWong/UDD)          |
+| Dataset         | Year | Classes | Training | Testing | Evaluation Metric |                           Project                            |
+| :-------------- | :--- | :-----: | :------: | :-----: | :---------------: | :----------------------------------------------------------: |
+| COCO-Stuff      | 2018 |   172   |   118k   |   20k   |       mIoU        |      [Project](https://github.com/nightrome/cocostuff)       |
+| PASCAL VOC 2012 | 2012 |   20    |  1,464   |  1,449  |       mIoU        |  [Project](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)  |
+| PASCAL Content  | 2014 |   459   |  4,998   |  5,105  |       mIoU        | [Project](https://www.cs.stanford.edu/~roozbeh/pascal-context/) |
+| Cityscapes      | 2016 |   19    |  2,975   |   500   |       mIoU        |        [Project](https://www.cityscapes-dataset.com/)        |
+| ADE20k          | 2017 |   150   |  25,574  |  2,000  |       mIoU        | [Project](https://groups.csail.mit.edu/vision/datasets/ADE20K/) |
+| MESS*           | 2023 |    -    |    -     |    -    |       mIoU        |        [Project](https://github.com/blumenstiel/MESS)        |
+| PASCAL-Part     | 2023 |   116   |   8432   |   851   |       mIoU        |     [Project](https://github.com/OpenRobotLab/OV_PARTS)      |
+| ADE20k-Part-234 | 2023 |   234   |   7348   |  1017   |       mIoU        |     [Project](https://github.com/OpenRobotLab/OV_PARTS)      |
+| PASCAL-5i**     | 2015 |   20    |    -     |    -    |   mIoU, FB-IoU    |  [Project](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)  |
+| COCO-20i**      | 2014 |   80    |    -     |    -    |   mIoU, FB-IoU    |             [Project](https://cocodataset.org/)              |
+| FSS-1000        | 2020 |  1000   |   5200   |  2400   |   mIoU, FB-IoU    |        [Project](https://github.com/HKUSTCV/FSS-1000)        |
+| OCHuman         | 2019 |    1    |    -     |  2231   |  AP, AP50, AP75   |   [Project](https://github.com/liruilong940607/OCHumanApi)   |
+| CIS             | 2023 |    1    |    -     |   459   |  AP, AP50, AP75   |       [Project](https://github.com/shanghangjiang/CIS)       |
+| COCO-OCC        | 2021 |   80    |    -     |  1005   |  AP, AP50, AP75   |          [Project](https://github.com/lkeab/BCNet)           |
+| CamVid          | 2008 |   11    |   467    |   233   |       mIoU        | [Project](https://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/) |
+| UAVid           | 2018 |    9    |   200    |   100   |       mIoU        |                [Projects](https://uavid.nl/)                 |
+| UDD6            | 2018 |   12    |   205    |   45    |       mIoU        |          [Project](https://github.com/MarcWong/UDD)          |
 
 *The benchmark includes a wide range of domain-specific datasets.
 
