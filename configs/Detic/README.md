@@ -26,6 +26,33 @@ cd Detic
 pip install -r requirements.txt
 ```
 
+## Open Vocabulary Generalization Evaluation
+### 1.Dataset Preparation
+
+In this task, we use VOC, COCO, Object365, and LVIS. We use the weights trained on COCO-base to evaluate on the other three datasets to assess the model's generalization capability. Similarly, we use the weights trained on LVIS-base to evaluate on COCO.
+
+### 2.Config Preparation
+
+[COCO-base Config](https://github.com/facebookresearch/Detic/blob/main/configs/Detic_OVCOCO_CLIP_R50_1x_max-size_caption.yaml)
+[LVIS-base Config](https://github.com/facebookresearch/Detic/blob/main/configs/Detic_LCOCOI21k_CLIP_SwinB_896b32_4x_ft4x_max-size.yaml)
+
+### 3.Weights Preparation
+
+Download the [COCO-base checkpoint](https://dl.fbaipublicfiles.com/detic/Detic_OVCOCO_CLIP_R50_1x_max-size_caption.pth) to the weights directory in detic.
+Download the [LVIS-base checkpoint](https://dl.fbaipublicfiles.com/detic/Detic_LCOCOI21k_CLIP_SwinB_896b32_4x_ft4x_max-size.pth) to the weights directory in detic.
+
+### 4.Evaluation
+
+python train_net.py --num-gpus 1 --config-file configs/Detic_OVCOCO_CLIP_R50_1x_max-size_caption.yaml --eval-only MODEL.WEIGHTS weights/Detic_OVCOCO_CLIP_R50_1x_max-size_caption.pth
+
+python train_net.py --num-gpus 1 --config-file configs/Detic_LCOCOI21k_CLIP_SwinB_896b32_4x_ft4x_max-size.yaml --eval-only MODEL.WEIGHTS weights/Detic_LbaseI_CLIP_SwinB_896b32_4x_ft4x_max-size.pth
+
+### 5.Results
+The evaluation metrics are AP50, AP75, and mAP.
+| COCO->VOC | COCO->LVIS | COCO->Object365 | LVIS->COCO |
+ |---|---|---|---|
+| Detic | 62.1/40.2/38.1 | 10.9/7.6/7.1 | 6.8/4.6/4.3 | 57.7/38.7/36.2 |
+
 ## Fine-grained Understanding Evaluation
 
 ### 1.Dataset Preparation
