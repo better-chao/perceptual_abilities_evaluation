@@ -23,7 +23,7 @@ In this task, we use COCO and LVIS. we use the weights trained on LVIS-base to e
 
 ### 2.Config Preparation
 
-[LVIS-base Config]([https://github.com/facebookresearch/Detic/blob/main/configs/Detic_LCOCOI21k_CLIP_SwinB_896b32_4x_ft4x_max-size.yaml](https://github.com/fcjian/PromptDet/blob/master/configs/promptdet/promptdet_r50_fpn_sample1e-3_mstrain_6x_lvis_v1_self_train.py))
+[LVIS-base Config](https://github.com/fcjian/PromptDet/blob/master/configs/promptdet/promptdet_r50_fpn_sample1e-3_mstrain_6x_lvis_v1_self_train.py)
 
 ### 3.Weights Preparation
 
