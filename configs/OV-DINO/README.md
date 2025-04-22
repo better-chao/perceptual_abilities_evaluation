@@ -13,7 +13,7 @@ Open-vocabulary detection is a challenging task due to the requirement of detect
 </div>
 
 ## Installation
-Please clone the [OVDIN](https://github.com/wanghao9610/OV-DINO/) repo and follow the [instructions](https://github.com/wanghao9610/OV-DINO/blob/main/README.md) to configure the environment.
+Please clone the [OVDINO](https://github.com/wanghao9610/OV-DINO/) repo and follow the [instructions](https://github.com/wanghao9610/OV-DINO/blob/main/README.md) to configure the environment.
 
 ```bash
 # clone this project
