@@ -1,0 +1,40 @@
+_BASE_: "./Base-RCNN-FPN.yaml"
+MODEL:
+  RPN:
+    CONV_DIMS: (-1, -1)
+  BACKBONE:
+    FREEZE_AT: 0
+  WEIGHTS: ""
+  MASK_ON: True
+  RESNETS:
+    DEPTH: 50
+    NORM: SyncBN
+  FPN:
+    NORM: SyncBN
+  ROI_HEADS:
+    NAME: VLPLMROIHeads
+    NUM_CLASSES: 1203
+  ROI_BOX_HEAD:
+    CLS_AGNOSTIC_BBOX_REG: True
+    NUM_CONV: 4
+    CONV_DIM: 256
+    NUM_FC: 1
+    FC_DIM: 1024
+    NORM: "naiveSyncBN_N"
+  ROI_MASK_HEAD:
+    NORM: "naiveSyncBN_N"
+DATASETS:
+  TRAIN: ("coco_openvoc_train",)
+  TEST: ('lvis_eval', )
+SOLVER:
+  CHECKPOINT_PERIOD: 5000
+  IMS_PER_BATCH: 128
+  WARMUP_FACTOR: 0.067
+  WARMUP_ITERS: 1000
+  BASE_LR: 0.32
+  WEIGHT_DECAY: 4e-5
+  STEPS: (162000, 171000, 175500)
+  MAX_ITER: 180000
+OUTPUT_DIR: "./output/auto"
+DATALOADER:
+  NUM_WORKERS: 32

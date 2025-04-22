@@ -1,0 +1,22 @@
+_BASE_: "./Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  MASK_ON: True
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NAME: VLPLMROIHeads
+    NUM_CLASSES: 65
+  ROI_BOX_HEAD:
+    CLS_AGNOSTIC_BBOX_REG: True
+  ROI_MASK_HEAD:
+    CLS_AGNOSTIC_MASK: True
+DATASETS:
+  TRAIN: ("coco_openvoc_train",)
+  TEST: ('coco_openvoc_val_all', )
+SOLVER:
+  CHECKPOINT_PERIOD: 5000
+  IMS_PER_BATCH: 16
+OUTPUT_DIR: "./output/auto"
+DATALOADER:
+  NUM_WORKERS: 16
