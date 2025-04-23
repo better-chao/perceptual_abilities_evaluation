@@ -153,3 +153,15 @@ Last update on 2025/04/09
 *The benchmark includes a wide range of domain-specific datasets.
 
 **The benchmark has different training and testing sets under various settings.
+
+## Bibtex
+
+If our work is helpful for your research, please consider citing the following BibTeX entry.
+```
+@article{feng2025vision,
+  title={Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation},
+  author={Feng, Yongchao and Liu, Yajie and Yang, Shuai and Cai, Wenrui and Zhang, Jinqing and Zhan, Qiqi and Huang, Ziyue and Yan, Hongxi and Wan, Qiao and Liu, Chenguang and others},
+  journal={arXiv preprint arXiv:2504.09480},
+  year={2025}
+}
+```

@@ -1,0 +1,54 @@
+MODEL:
+  META_ARCHITECTURE: "GeneralizedRCNNTP"
+  # Initial weight to load from image-caption training
+  WEIGHT: ""
+  # Trim the prefix of the checkpoint parameter names so they can be correctly loaded
+  BACKBONE_PREFIX: "backbone.body."
+  # Set true when resuming training. Otherwise should be False to prevent loading trainer
+  # state from pretraining phase.
+  LOAD_TRAINER_STATE: False
+  # Always true for zero-shot settings, although it is false for regular Faster R-CNN
+  # If false, it learns a bounding box regression for each (seen) class separately
+  CLS_AGNOSTIC_BBOX_REG: True
+  ROI_BOX_HEAD:
+    # PREDICTOR: "FastRCNNPredictorTP"
+    # Note these are the number of classes for training only
+    NUM_CLASSES: 201
+    # Dimension of embeddings that will be loaded
+    EMB_DIM: 512
+    # Always true for zero-shot
+    EMBEDDING_BASED: True
+    # To balance background proposals vs. foreground. Especially important to tune for
+    # zero-shot settings, because a value too large would push unseen classes to background.
+    LOSS_WEIGHT_BACKGROUND: 0.2
+    # Whether or not to freeze the vl_projection layer. True is better.
+    FREEZE_EMB_PRED: False
+  ROI_HEADS:
+    # At most how much of a batch should be filled with positive boxes. In zero-shot setting
+    # having too many background hurts. Note 1.0 doesn't mean there won't be any background.
+    # It is unlikely to have 512 positive boxes, and the rest is always filled with background.
+    POSITIVE_FRACTION: 1.0
+  BACKBONE:
+    FREEZE_CONV_BODY_AT: 2
+DATASETS:
+  TRAIN: ("cub200_2011_coco_train",)
+  TEST: ("cub200_2011_coco_val",)
+  DATASET_CLASS: "COCODataset"
+  DATASET_ARGS:
+    LOAD_EMBEDDINGS: True
+    # The key for embedding to load.
+    EMB_KEY: "ClipEmb"
+    # Dimension of embeddings
+    EMB_DIM: 512
+SOLVER:
+  BASE_LR: 0.0005
+  WEIGHT_DECAY: 0.0001
+  STEPS: (12000, 18000)
+  MAX_ITER: 20000
+  IMS_PER_BATCH: 8
+  CHECKPOINT_PERIOD: 5000
+  TEST_PERIOD: 0
+  LOG_PERIOD: 100
+  SKIP_VAL_LOSS: True # val loss is not correct, to be deleted
+TEST:
+  IMS_PER_BATCH: 8

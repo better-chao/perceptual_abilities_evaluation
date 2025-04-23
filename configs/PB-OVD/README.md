@@ -76,4 +76,20 @@ python -m torch.distributed.launch --nproc_per_node=4 tools/train_net.py  --dist
 MODEL.WEIGHT models_finetune.pth \
 OUTPUT_DIR work_dirs/cub200_2011_finetune
 ```
+
+Text Prompt PB-OVD on Stanford Dogs datasets following
+```shell
+python -m torch.distributed.launch --nproc_per_node=4 tools/train_net.py  --distributed \
+--config-file configs/textprompt_stanford_dogs.yaml \
+MODEL.WEIGHT models_finetune.pth \
+OUTPUT_DIR work_dirs/stanford_dogs_textprompt
+```
+
+Text Prompt PB-OVD on CUB200-2011 datasets following
+```shell
+python -m torch.distributed.launch --nproc_per_node=4 tools/train_net.py  --distributed \
+--config-file configs/textprompt_cub200_2011.yaml \
+MODEL.WEIGHT models_finetune.pth \
+OUTPUT_DIR work_dirs/cub200_2011_textprompt
+```
 The evaluation will be made after training and the result can be found in the training log.
