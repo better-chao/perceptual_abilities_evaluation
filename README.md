@@ -21,7 +21,7 @@ Last update on 2025/04/09
 
 #### VLM Detection Models
 
-**First Type**
+**First Type** 
 
 * [CVPR 2022] Grounded Language-Image Pre-training [[Paper](https://arxiv.org/abs/2112.03857)][[Code](https://github.com/microsoft/GLIP)]
 * [CVPR 2022] RegionCLIP: Region-based Language-Image Pretraining [[Paper](https://arxiv.org/abs/2112.09106)][[Code](https://github.com/microsoft/RegionCLIP)]
