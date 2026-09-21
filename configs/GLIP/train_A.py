@@ -100,6 +100,15 @@ def main(custom_args):
     cfg.test_dataloader.dataset.metainfo = cfg.metainfo
     cfg.val_dataloader.dataset.metainfo = cfg.metainfo
     cfg.train_cfg.max_epochs = custom_args['epochs']
+    # no best-checkpoint selection: results are read from the final epoch
+    if 'checkpoint' in cfg.default_hooks:
+        cfg.default_hooks.checkpoint.save_best = None
+    # keep the learning-rate schedule consistent with the epoch budget:
+    # closed-set schedule: the released 2x milestones [16, 22] rescaled to the 12-epoch budget
+    for _sch in cfg.param_scheduler:
+        if _sch.get('type') == 'MultiStepLR':
+            _sch['end'] = custom_args['epochs']
+            _sch['milestones'] = [8, 11]
     cfg.train_cfg.val_interval = 1
     cfg.train_dataloader.batch_size = 6
     cfg.val_dataloader.batch_size = 1

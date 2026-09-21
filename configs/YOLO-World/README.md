@@ -71,3 +71,19 @@ The same config file can be used for both "zero prediction" and "visual finetune
 ./tools/dist_test.sh ./configs/Gneral_Finetune_VOC_YOLOw_Large.py path/to/weights 4 --amp
 ```
 
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, neck and head parameters are frozen; the only trainable parameters
+are one 50x50 tensor per PAFPN level, added to the image features after the
+text-guided neck has produced them.
+
+- module: [configs/yolo_world_visual_prompt_module.py](configs/yolo_world_visual_prompt_module.py)
+- config: [configs/yolo_world_visual_prompt_tuning.py](configs/yolo_world_visual_prompt_tuning.py)
+
+```shell
+./tools/dist_train.sh configs/yolo_world_visual_prompt_tuning.py 4 \
+    --work-dir work_dirs/yolo_world_visual_prompt
+```
+
+`prompt_channels` must match `model.neck.out_channels` (`[256, 512, 512]` for YOLOv8-L).

@@ -67,3 +67,24 @@ sh ft_custom.sh
 ```shell
 sh text_custom.sh
 ```
+
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, neck, transformer and text-encoder parameters are frozen; the only
+trainable parameters are one 50x50 tensor per neck level, added to the
+multi-scale image feature map after bilinear resizing.
+
+- module: [ovdino_visual_prompt.py](ovdino_visual_prompt.py)
+- config: [ovdino/projects/ovdino/configs/ovdino_swin_tiny224_bert_base_vp_custom_24ep.py](ovdino/projects/ovdino/configs/ovdino_swin_tiny224_bert_base_vp_custom_24ep.py)
+- launcher: [vp_custom.sh](vp_custom.sh)
+
+In `tools/train_net.py`, after the model is built and the weights are loaded:
+
+```python
+from ovdino_visual_prompt import attach_visual_prompt
+prompt = attach_visual_prompt(model, channels=[256] * 4, prompt_size=50,
+                              module_name="neck")
+```
+
+and build the optimizer over `prompt.parameters()` only.

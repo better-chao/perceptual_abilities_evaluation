@@ -55,8 +55,10 @@ test_evaluator = val_evaluator
 
 max_epoch = 20
 
+# no best-checkpoint selection: every result in the paper is read from the
+# final-epoch checkpoint, so the validation metric never decides what is kept
 default_hooks = dict(
-    checkpoint=dict(interval=1, max_keep_ckpts=1, save_best='auto'),
+    checkpoint=dict(interval=1, max_keep_ckpts=1, save_best=None),
     logger=dict(type='LoggerHook', interval=5))
 train_cfg = dict(max_epochs=max_epoch, val_interval=1)
 

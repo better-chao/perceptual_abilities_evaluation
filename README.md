@@ -4,20 +4,31 @@
 
 This is the repository of **Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation**
 
-**Evaluation Radar Results**:
+**The four adaptation paradigms evaluated here.** Every detector is run under all
+four, and they differ only in which components receive gradients: dashed grey is
+frozen, solid blue is updated, orange is the learnable prompt introduced by the
+paradigm itself.
 
 <p align="center">
-  <img src="images/radar_det_text_prompt.png" width="45%">
-  <img src="images/radar_det_visual_finetuning.png" width="45%">
+  <img src="images/paradigms.png" width="96%">
+</p>
+
+**Evaluation Radar Results.** Each axis is one task setting; the pair beneath an
+axis label gives the smallest and the largest value any plotted model attains on
+that axis, divided by 100, and the radius is that value rescaled linearly between
+the two. Radii are therefore comparable along an axis but not between axes.
 
 <p align="center">
-  <img src="images/radar_det_zero_pred.png" width="45%">
-  <img src="images/radar_seg.png" width="45%">
+  <img src="images/radar_detection.png" width="88%">
+</p>
+
+<p align="center">
+  <img src="images/radar_segmentation.png" width="76%">
 </p>
 
 ## Models
 
-Last update on 2025/04/09
+Last update on 2026/09/21
 
 #### VLM Detection Models
 

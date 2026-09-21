@@ -58,11 +58,32 @@ cd $MAINROOT
 ./train_transfer_learning.sh
 
 ```
-The model will be saved based on the best performance on the test set.
+No best-checkpoint selection is performed: the checkpoint of the final iteration is the one reported.
 
 ```shell
-# Then we test the best model on the different unseen target dataset. Here we assume that epoch_20.pth is the best model.
+# Then we test the final checkpoint on the different unseen target datasets.
 
 ./test_transfer_learning.sh
 
 ```
+
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, RPN, ROI-head and text-embedding parameters are frozen; the only
+trainable parameters are one 50x50 tensor per backbone level, added to the
+feature map after bilinear resizing.
+
+- module: [regionclip_visual_prompt.py](regionclip_visual_prompt.py)
+- config template: [CLIP_fast_rcnn_R_50_C4_ovd_visual_prompt.yaml](CLIP_fast_rcnn_R_50_C4_ovd_visual_prompt.yaml)
+
+In the training entry point, after the model is built and the weights are loaded:
+
+```python
+from regionclip_visual_prompt import attach_visual_prompt
+prompt = attach_visual_prompt(model, channels=[1024], prompt_size=50)  # RN50-C4
+optimizer = torch.optim.AdamW(prompt.parameters(), lr=cfg.SOLVER.BASE_LR,
+                              weight_decay=1e-4)
+```
+
+Use `channels=[2560]` for the RN50x4 variant.

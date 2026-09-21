@@ -52,11 +52,29 @@ python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_
 ./tools/dist_train.sh configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py 4 --work-dir work_dir/weather_work_dir
 
 ```
-The model will be saved based on the best performance on the test set.
+No best-checkpoint selection is performed: the checkpoint of the final epoch is the one reported.
 
 ```shell
-# Then we test the best model on the different unseen target dataset. Here we assume that epoch_20.pth is the best model.
+# Then we test the final-epoch checkpoint on the different unseen target datasets (20 epochs, so epoch_20.pth).
 
 python tools/test.py configs/grounding_dino/grounding_dino_swin-t_finetune_8xb2_20e_weather.py work_dir/weather_work_dir/epoch_20.pth
 
 ```
+
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, neck, encoder, decoder and text-encoder parameters are frozen; the
+only trainable parameters are one 50x50 tensor per neck level, added to the
+multi-scale image feature map after bilinear resizing to each level.
+
+- module: [grounding_dino_visual_prompt_module.py](grounding_dino_visual_prompt_module.py)
+- config: [grounding_dino_visual_prompt_tuning.py](grounding_dino_visual_prompt_tuning.py)
+
+```shell
+# put both files under $MMDETROOT/configs/grounding_dino/ and run
+./tools/dist_train.sh configs/grounding_dino/grounding_dino_visual_prompt_tuning.py 4 \
+    --work-dir work_dirs/grounding_dino_visual_prompt
+```
+
+Set `model.prompt_channels` to `[256] * model.neck.num_outs`.

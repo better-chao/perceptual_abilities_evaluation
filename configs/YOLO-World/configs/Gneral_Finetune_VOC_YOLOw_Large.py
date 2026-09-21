@@ -3,9 +3,9 @@ val_interval = 4
 train_batch_size_per_gpu = 2
 val_batch_size_per_gpu = 2
 base_lr = 0.01
-max_epochs = 40
+max_epochs = 20
 max_keep_ckpts = 0
-close_mosaic_epochs = 20
+close_mosaic_epochs = 10
 
 data_root = 'data/VOC'
 train_ann_file = 'coco_annotations/trainval_coco_ann.json'

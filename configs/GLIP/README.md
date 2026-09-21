@@ -71,3 +71,21 @@ First copy glip_head_prompt_tuning.py in your current work directory, and import
 | --------- | --------- | ------ | -------- | -------- | ------- | ------- | ------- |
 | GLIP      | Zero-shot | 0.371  | 0.574    | 0.380    | nan     | 0.023   | 0.383   |
 
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, neck, head and text-encoder parameters are frozen; the only
+trainable parameters are one 50x50 tensor per FPN level, added to the
+multi-scale image feature map after bilinear resizing to each level.
+
+- module: [glip_visual_prompt_module.py](glip_visual_prompt_module.py)
+- config: [glip_visual_prompt_tuning.py](glip_visual_prompt_tuning.py)
+
+```shell
+# put both files under $MMDETROOT/configs/glip/ and run
+./tools/dist_train.sh configs/glip/glip_visual_prompt_tuning.py 4 \
+    --work-dir work_dirs/glip_visual_prompt
+```
+
+Set `model.prompt_channels` to the neck output of the variant in use
+(`[256] * 5` for the Swin-T FPN used here).

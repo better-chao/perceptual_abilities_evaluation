@@ -93,3 +93,23 @@ MODEL.WEIGHT models_finetune.pth \
 OUTPUT_DIR work_dirs/cub200_2011_textprompt
 ```
 The evaluation will be made after training and the result can be found in the training log.
+
+
+## Visual Prompt Fine-tuning (unified feature-space prompt)
+
+All backbone, RPN and ROI-head parameters are frozen; the only trainable
+parameters are one 50x50 tensor per backbone level, added to the feature map
+after bilinear resizing.
+
+- module: [pb_ovd_visual_prompt.py](pb_ovd_visual_prompt.py)
+- configs: [visualprompt_stanford_dogs.yaml](visualprompt_stanford_dogs.yaml),
+  [visualprompt_cub200_2011.yaml](visualprompt_cub200_2011.yaml)
+
+In the training entry point, after the model is built and the weights are loaded:
+
+```python
+from pb_ovd_visual_prompt import attach_visual_prompt
+prompt = attach_visual_prompt(model, channels=[1024], prompt_size=50)  # R50-C4
+optimizer = torch.optim.AdamW(prompt.parameters(), lr=cfg.SOLVER.BASE_LR,
+                              weight_decay=1e-4)
+```

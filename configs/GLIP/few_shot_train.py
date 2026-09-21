@@ -102,6 +102,15 @@ def main(custom_args):
     cfg.test_evaluator.format_only = True
     cfg.test_evaluator.outfile_prefix = custom_args['outfile_prefix']
     cfg.train_cfg.max_epochs = custom_args['epochs']
+    # no best-checkpoint selection: results are read from the final epoch
+    if 'checkpoint' in cfg.default_hooks:
+        cfg.default_hooks.checkpoint.save_best = None
+    # keep the learning-rate schedule consistent with the epoch budget:
+    # few-shot runs are trained at a constant learning rate, so no milestone falls inside the schedule
+    for _sch in cfg.param_scheduler:
+        if _sch.get('type') == 'MultiStepLR':
+            _sch['end'] = custom_args['epochs']
+            _sch['milestones'] = []
     cfg.default_hooks.checkpoint.interval = 40
     cfg.train_dataloader.batch_size = 1
     cfg.val_dataloader.batch_size = 1
